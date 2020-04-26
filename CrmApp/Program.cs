@@ -6,32 +6,19 @@ namespace CrmApp
     {
         static void Main()
         {
-            Product myProduct = new Product(1)
-            {
-                Code = "A1",
-                Name = "Chocolate",
-                Price = 1.2m,
-                Quantity = 10
-            };
+            Ui ui = new Ui();
 
+
+            Product myProduct = ui.CreateProduct();
+            if (myProduct != null) { 
             myProduct.Print();
-
-
-            Product a1 = new Product(2)
-            {
-
-                Code = "A123",
-                Name = "Chicklets"
-            };
-
+            Product a1 = ui.CreateProduct();
             a1.Print();
 
             decimal total = myProduct.TotalCost + a1.TotalCost;
             Console.WriteLine(total);
 
-
+            }
         }
-
-
     }
 }
