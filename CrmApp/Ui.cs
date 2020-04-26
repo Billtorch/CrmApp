@@ -23,12 +23,39 @@ namespace CrmApp
                 Console.WriteLine("Give the Quantity");
                 product.Quantity = Int32.Parse(Console.ReadLine());
 
-                
+
                 return product;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine("You have not completed the questions properly."+ "Please try again!");
+                Console.WriteLine("You have not completed the questions properly." + "Please try again!");
+                return null;
+            }
+        }
+
+        public Customer CreateCustomer()
+
+
+        {
+
+            try
+            {
+                Customer customer = new Customer();
+                Console.WriteLine("Gender");
+                customer.Gender = Console.ReadLine();
+                Console.WriteLine("Customer name");
+                customer.Name2 = Console.ReadLine();
+                Console.WriteLine("Surname");
+                customer.Surname = Console.ReadLine();
+                Console.WriteLine("Age");
+                customer.Age = Int32.Parse(Console.ReadLine());
+
+
+                return customer;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("You have not completed the questions properly." + "Please try again!");
                 return null;
             }
         }

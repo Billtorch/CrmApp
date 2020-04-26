@@ -2,59 +2,50 @@
 using System.Collections.Generic;
 using System.Text;
 
-
-
 namespace CrmApp
 {
     class Product
     {
+        //fields
         private int category;
         private String code;
 
-
-
+        //property that wraps the field code
         public string Code
         {
             get { return "GR" + code; }
             set { code = value; }
         }
+
+        //other properties
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
+
+        //calculated property
         public decimal TotalCost { get { return Price * Quantity; } }
 
-
-
+        //constructors
+        //constructor overload
         public Product(int _category)
         {
             category = _category;
         }
 
-
-
+        //default constructor or empty
         public Product()
         {
 
-
-
         }
 
-
-
+        //method ToString inherented by the Object class
         public override string ToString()
         {
-            return "Name= " + Name
-               + " Price= " + Price
-               + " Quantity= " + Quantity
-               + " TotalCost= " + TotalCost;
+            return $"Name= {Name} Price= {Price} Quantity= {Quantity} TotalCost= {TotalCost}";
         }
 
 
-
-
-
-
-
+        //calculated property
         public void IncreasePrice(decimal percentage)
         {
             if (category == 1)
@@ -65,10 +56,7 @@ namespace CrmApp
             {
                 Price *= (1 + percentage);
             }
-
         }
-
-
 
         public void Print()
         {
@@ -76,15 +64,15 @@ namespace CrmApp
             Console.WriteLine();
         }
 
-    }
+        public string GetRange()
+        {
+            if (Price < 1)
+                return "low";
+            else if (Price < 10)
+                return "medium";
+            else
+                return "high";
 
-
-
-
-    class Shop
-    {
-
-
-
+        }
     }
 }
